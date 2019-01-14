@@ -48,13 +48,13 @@ app.post("/scrape", function(req, res) {
           .text();
         console.log(result);
         db.Article.create(result)
-          .then(function(result) {})
+          .then(function() {})
           .catch(function(err) {
             return res.json(err);
           });
       });
     });
-  res.redirect("/");
+  // res.redirect("/");
 });
 
 module.exports = app;
