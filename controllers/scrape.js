@@ -47,6 +47,7 @@ app.post("/scrape", function(req, res) {
           .children("strong")
           .text();
         console.log(result);
+
         db.Article.create(result)
           .then(function() {})
           .catch(function(err) {
@@ -54,7 +55,7 @@ app.post("/scrape", function(req, res) {
           });
       });
     });
-  // res.redirect("/");
+  res.redirect("/");
 });
 
 module.exports = app;

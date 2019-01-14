@@ -33,7 +33,7 @@ var xphb = require('express-handlebars')
 app.engine('handlebars', xphb({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 var route = require('./controllers/route.js');
 var scrape = require('./controllers/scrape.js')
