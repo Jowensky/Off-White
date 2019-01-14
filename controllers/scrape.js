@@ -42,7 +42,6 @@ axios
         .children("span")
         .children("strong")
         .text();
-
-      console.log(result);
+        console.log(result)
     });
   });
