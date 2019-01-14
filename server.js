@@ -38,7 +38,7 @@ app.use(express.static("public"));
 var route = require('./controllers/route.js');
 var scrape = require('./controllers/scrape.js')
 app.use(route);
-// app.use(scrape);
+app.use(scrape);
 
 
 app.listen(PORT, function() {
