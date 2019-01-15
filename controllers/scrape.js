@@ -46,7 +46,21 @@ app.post("/scrape", function(req, res) {
           .children("span")
           .children("strong")
           .text();
-        console.log(result);
+
+          // dublicate
+        db.Article.find({}, function(err, data) {
+          for (var fd in data) {
+            for (var fu in result) {
+              //if link matches
+              if (data[fd].link === result[fu].link) {
+                console.log(this);
+                //delete the duplicate from the array
+                result.splice(link, 1);
+                console.log("deleted");
+              }
+            }
+          }
+        });
 
         db.Article.create(result)
           .then(function() {})
