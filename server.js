@@ -8,11 +8,6 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-
-// Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
-
 // Require all models
 var db = require("./models");
 

@@ -1,0 +1,36 @@
+.item {
+    height: 100vh;
+}
+
+.item img {
+    height: 80vh;
+    width: auto;
+}
+
+.item img:hover {
+    cursor: pointer;
+}
+
+form .connect {  
+    width: 200px;
+   margin: -50vh 95vh;
+   display: none;
+}
+
+form .connect input {
+    width: 180px;
+    height: 130px;
+}
+
+form .connect input::-webkit-input-placeholder {
+    text-align: center;
+}
+
+form .connect a {
+    color: black;
+    text-decoration: none;
+}
+
+form .connect a:hover {
+    font-size: larger;
+}

@@ -1,9 +1,11 @@
 {{#each off}}
-<section>
+<div class="item">
     <h2>{{name}}</h2>
-    <a href="https://www.off---white.com/{{link}}"><img src="{{image}}"></a>
+    <button class="delete" data-id="{{_id}}">Delete</button>
+    <a href="/articles/{{_id}}"><img src="{{image}}"></a>
     <p class="category">{{category}}</p>
     <p>{{price}}</p>
+    <a href="https://www.off---white.com/{{link}}"><p class="link">Link</p></a>
     <hr>
-</section>
+</div>
 {{/each}}
