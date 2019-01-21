@@ -47,28 +47,26 @@ app.post("/scrape", function(req, res) {
           .children("strong")
           .text();
 
-          // dublicate
-        db.Article.find({}, function(err, data) {
-          for (var fd in data) {
-            for (var fu in result) {
-              //if link matches
-              if (data[fd].link === result[fu].link) {
-                console.log(this);
-                //delete the duplicate from the array
-                result.splice(fu, 1);
-                insert(result)
-              }
-            }
-          }
-        });
+        // dublicate
+        // db.Article.find({}, function(err, data) {
+        //   for (var fd in data) {
+        //     for (var fu in result) {
+        //       //if link matches
+        //       if (data[fd].link === result[fu].link) {
+        //         console.log(this);
+        //         //delete the duplicate from the array
+        //         result.splice(fu, 1);
+        //         insert(result)
+        //       }
+        //     }
+        //   }
+        // });
 
-        function insert(result) {
-          db.Article.create(result)
+        db.Article.create(result)
           .then(function() {})
           .catch(function(err) {
             return res.json(err);
           });
-        }
       });
     });
   res.redirect("/");
