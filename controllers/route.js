@@ -25,12 +25,13 @@ app.get("/articles/:id", function(req, res) {
     });
 });
 
-app.put("/articles/:id", function(req, res) {
+app.post("/articles/:id", function(req, res) {
   db.Comment.create(req.body).then(function(result) {
 
     return db.Article.findOneAndUpdate({_id: req.params.id }, {$push:{ comments: result._id }}, { new: true }) 
     .then(function(dbArticle) {
       // If we were able to successfully update an Article, send it back to the client
+      console.log("finished")
       res.json(dbArticle);
     })
     .catch(function(err) {
@@ -40,17 +41,19 @@ app.put("/articles/:id", function(req, res) {
   });
 });
 
-app.delete("/comments/:id", function(req, res) {
+app.post("/articles/comments/:id", function(req, res) {
   db.Comment.findOneAndDelete({ _id: req.params.id})
-  .then(function() {
+  .then(function(data) {
+    console.log(`Removed: ${data}`)
   }).catch(function(err) {
     res.json(err)
   })
 });
 
-app.delete("/article/id", function(req, res) {
+app.post("/article/delete/:id", function(req, res) {
   db.Article.findOneAndDelete({ _id: req.params.id})
-  .then(function() {
+  .then(function(data) {
+    console.log(`Removed: ${data}`)
   }).catch(function(err) {
     res.json(err)
   })
