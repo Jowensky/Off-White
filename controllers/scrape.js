@@ -47,6 +47,7 @@ app.get("/scrape", function(req, res) {
           .children("strong")
           .text();
 
+          console.log(result)
           // dublicate
         db.Article.find({}, function(err, data) {
           for (var fd in data) {
