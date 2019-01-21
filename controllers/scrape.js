@@ -75,10 +75,8 @@ app.get("/scrape", function(req, res) {
 
         db.Article.create(result)
           .then(function() {
-            console.log("success");
           })
           .catch(function(err) {
-            console.log(err);
             return res.json(err);
           });
       });

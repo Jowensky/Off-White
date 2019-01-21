@@ -12,7 +12,6 @@ $(document).ready(function() {
       url:"/scrape",
       method: "GET"
     }).then(function() {
-      console.log("success")
     })
   })
 });
@@ -31,21 +30,19 @@ function addcomment(Event) {
 
   $.ajax({
     url: "/articles/" + _id,
-    method: "POST",
+    method: "PUT",
     data: data
   }).then(function(data) {
-    console.log(data);
   });
-}
+};
 
 $(".remove").on("click", function(Event) {
   var _id = $(Event.target).data("id");
 
   $.ajax({
-    url: "/articles/comments/" + _id,
-    method: "POST"
+    url: "/comments/" + _id,
+    method: "DELETE"
   }).then(function() {
-    console.log("done");
   });
 });
 
@@ -53,9 +50,8 @@ $(".delete").on("click", function(event) {
   var _id = $(event.target).data("id");
 
   $.ajax({
-    url: "/article/delete/" + _id,
-    method: "POST"
+    url: "/delete/" + _id,
+    method: "DELETE"
   }).then(function() {
-    console.log(finished);
   });
 });

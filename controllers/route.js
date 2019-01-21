@@ -7,7 +7,6 @@ app.get("/", function(req, res) {
     .sort({ _id: 1 })
     .limit(12)
     .then(function(result) {
-      console.log(result)
       res.render("index", { off: result });
     })
     .catch(function(err) {
@@ -26,13 +25,12 @@ app.get("/articles/:id", function(req, res) {
     });
 });
 
-app.post("/articles/:id", function(req, res) {
+app.put("/articles/:id", function(req, res) {
   db.Comment.create(req.body).then(function(result) {
 
     return db.Article.findOneAndUpdate({_id: req.params.id }, {$push:{ comments: result._id }}, { new: true }) 
     .then(function(dbArticle) {
       // If we were able to successfully update an Article, send it back to the client
-      console.log("finished")
       res.json(dbArticle);
     })
     .catch(function(err) {
@@ -42,19 +40,17 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 
-app.post("/articles/comments/:id", function(req, res) {
+app.delete("/comments/:id", function(req, res) {
   db.Comment.findOneAndDelete({ _id: req.params.id})
-  .then(function(data) {
-    console.log(`Removed: ${data}`)
+  .then(function() {
   }).catch(function(err) {
     res.json(err)
   })
 });
 
-app.post("/article/delete/:id", function(req, res) {
+app.delete("/article/id", function(req, res) {
   db.Article.findOneAndDelete({ _id: req.params.id})
-  .then(function(data) {
-    console.log(`Removed: ${data}`)
+  .then(function() {
   }).catch(function(err) {
     res.json(err)
   })
