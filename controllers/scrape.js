@@ -57,6 +57,8 @@ app.get("/scrape", function(req, res) {
                 //delete the duplicate from the array
                 result.splice(fu, 1);
                 insert(result)
+              } else {
+                insert(result)
               }
             }
           }
