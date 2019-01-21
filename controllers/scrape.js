@@ -4,7 +4,7 @@ var db = require("../models");
 var express = require("express");
 var app = express();
 
-app.post("/scrape", function(req, res) {
+app.get("/scrape", function(req, res) {
   axios
     .get("https://www.off---white.com/en/US/men/t/seasons/ss2019")
     .then(function(response) {
@@ -46,30 +46,32 @@ app.post("/scrape", function(req, res) {
           .children("span")
           .children("strong")
           .text();
-
-        // dublicate
-        // db.Article.find({}, function(err, data) {
-        //   for (var fd in data) {
-        //     for (var fu in result) {
-        //       //if link matches
-        //       if (data[fd].link === result[fu].link) {
-        //         console.log(this);
-        //         //delete the duplicate from the array
-        //         result.splice(fu, 1);
-        //         insert(result)
-        //       }
-        //     }
-        //   }
-        // });
-
-        db.Article.create(result)
-          .then(function() {})
-          .catch(function(err) {
-            return res.json(err);
-          });
+        
+          // dublicate
+        db.Article.find({}, function(err, data) {
+          for (var fd in data) {
+            for (var fu in result) {
+              //if link matches
+              if (data[fd].link === result[fu].link) {
+                console.log(this);
+                //delete the duplicate from the array
+                result.splice(fu, 1);
+                insert(result)
+              }
+            }
+          }
+        });
       });
     });
   res.redirect("/");
 });
+
+function insert(result) {
+  db.Article.create(result)
+  .then(function() {})
+  .catch(function(err) {
+    return res.json(err);
+  });
+}
 
 module.exports = app;
