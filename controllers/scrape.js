@@ -4,7 +4,7 @@ var db = require("../models");
 var express = require("express");
 var app = express();
 
-app.post("/scrape", function(req, res) {
+app.get("/scrape", function(req, res) {
   axios
     .get("https://www.off---white.com/en/US/men/t/seasons/ss2019")
     .then(function(response) {
