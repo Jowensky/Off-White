@@ -46,10 +46,13 @@ app.get("/scrape", function(req, res) {
           .children("span")
           .children("strong")
           .text();
-        
+
+
           // dublicate
         db.Article.find({}, function(err, data) {
+          console.log(data)
           for (var fd in data) {
+            console.log(fd)
             for (var fu in result) {
               //if link matches
               if (data[fd].link === result[fu].link) {
