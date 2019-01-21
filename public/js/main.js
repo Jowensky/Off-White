@@ -6,6 +6,15 @@ $(document).ready(function() {
       addcomment(event);
     }
   });
+
+  $("#test").on("click", function() {
+    $.ajax({
+      url:"/scrape",
+      method: "GET"
+    }).then(function() {
+      console.log("success")
+    })
+  })
 });
 
 function addcomment(Event) {
