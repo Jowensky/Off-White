@@ -13,6 +13,14 @@ $(document).ready(function() {
       method: "GET"
     }).then(function() {
     })
+  });
+
+  $(".remove").on("click", function() {
+    removeComment(event)
+  });
+
+  $(".delete").on("click", function() {
+    removeArticle(event)
   })
 });
 
@@ -37,24 +45,24 @@ function addcomment(Event) {
   });
 }
 
-$(".remove").on("click", function(Event) {
+function removeComment(Event) {
   var _id = $(Event.target).data("id");
 
   $.ajax({
-    url: "/articles/comments/" + _id,
-    method: "POST"
+    url: "/comments/" + _id,
+    type: "DELETE"
   }).then(function() {
     console.log("done");
   });
-});
+};
 
-$(".delete").on("click", function(event) {
+function removeArticle(event) {
   var _id = $(event.target).data("id");
 
   $.ajax({
-    url: "/article/delete/" + _id,
-    method: "POST"
+    url: "/article/" + _id,
+    type: "DELETE",
   }).then(function() {
     console.log(finished);
   });
-});
+};

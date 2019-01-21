@@ -41,7 +41,7 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 
-app.post("/articles/comments/:id", function(req, res) {
+app.delete("/comments/:id", function(req, res) {
   db.Comment.findOneAndDelete({ _id: req.params.id})
   .then(function(data) {
     console.log(`Removed: ${data}`)
@@ -50,7 +50,7 @@ app.post("/articles/comments/:id", function(req, res) {
   })
 });
 
-app.post("/article/delete/:id", function(req, res) {
+app.delete("/article/:id", function(req, res) {
   db.Article.findOneAndDelete({ _id: req.params.id})
   .then(function(data) {
     console.log(`Removed: ${data}`)
