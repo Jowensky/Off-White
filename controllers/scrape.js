@@ -66,9 +66,13 @@ app.get("/scrape", function(req, res) {
         });
 
 function insert(result) {
+  console.log(result)
   db.Article.create(result)
-  .then(function() {})
+  .then(function() { 
+    console.log("success")
+  })
   .catch(function(err) {
+    console.log(err)
     return res.json(err);
   });
 }
