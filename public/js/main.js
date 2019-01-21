@@ -10,7 +10,7 @@ $(document).ready(function() {
   $("#test").on("click", function() {
     $.ajax({
       url:"/scrape",
-      method: "POST"
+      method: "GET"
     }).then(function() {
       console.log("success")
     })
