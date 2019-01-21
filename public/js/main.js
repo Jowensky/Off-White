@@ -38,7 +38,7 @@ function addcomment(Event) {
 
   $.ajax({
     url: "/articles/" + _id,
-    method: "POST",
+    type: "POST",
     data: data
   }).then(function() {
   });
