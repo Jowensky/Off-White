@@ -63,10 +63,6 @@ app.get("/scrape", function(req, res) {
             }
           }
         });
-      });
-    });
-  res.redirect("/");
-});
 
 function insert(result) {
   db.Article.create(result)
@@ -75,5 +71,11 @@ function insert(result) {
     return res.json(err);
   });
 }
+
+
+      });
+    });
+  res.redirect("/");
+});
 
 module.exports = app;
