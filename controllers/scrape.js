@@ -53,9 +53,10 @@ app.get("/scrape", function(req, res) {
             for (var fu in result) {
               //if link matches
               if (data[fd].link === result[fu].link) {
-                console.log(this);
+                // console.log("this");
                 //delete the duplicate from the array
-                // result.splice(fu, 1);
+                result.splice(fu, 1);
+                console.log(result)
                 insert(result)
               } else {
                 insert(result)
