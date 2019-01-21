@@ -56,9 +56,10 @@ app.get("/scrape", function(req, res) {
                 // console.log("this");
                 //delete the duplicate from the array
                 result.splice(fu, 1);
-                console.log(result)
+                console.log(` SPLICE ${result}`)
                 insert(result)
               } else {
+                console.log("NO MATCH" + result)
                 insert(result)
               }
             }
@@ -66,7 +67,7 @@ app.get("/scrape", function(req, res) {
         });
 
 function insert(result) {
-  console.log(result)
+  console.log("INSERT" + result)
   db.Article.create(result)
   .then(function() { 
     console.log("success")
