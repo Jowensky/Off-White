@@ -40,8 +40,7 @@ function addcomment(Event) {
     url: "/articles/" + _id,
     method: "POST",
     data: data
-  }).then(function(data) {
-    console.log(data);
+  }).then(function() {
   });
 }
 
@@ -52,7 +51,6 @@ function removeComment(Event) {
     url: "/comments/" + _id,
     type: "DELETE"
   }).then(function() {
-    console.log("done");
   });
 };
 
@@ -63,6 +61,6 @@ function removeArticle(event) {
     url: "/article/" + _id,
     type: "DELETE",
   }).then(function() {
-    console.log(finished);
+
   });
 };
