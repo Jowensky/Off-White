@@ -55,7 +55,7 @@ app.post("/scrape", function(req, res) {
               if (data[fd].link === result[fu].link) {
                 console.log(this);
                 //delete the duplicate from the array
-                result.splice(link, 1);
+                result.splice(fu, 1);
                 insert(result)
               }
             }

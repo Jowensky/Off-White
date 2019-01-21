@@ -8,7 +8,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/OffWhite";
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 // Require all models
-var db = require("./models");
 
 var PORT = 3000;
 
