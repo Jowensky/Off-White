@@ -52,10 +52,11 @@ app.get("/scrape", function(req, res) {
         db.Article.find({}, function(err, data) {
           console.log(data)
           for (var fd in data) {
-            console.log(fd)
+            console.log(fd , 'loop')
             for (var fu in result) {
               //if link matches
               if (data[fd].link === result[fu].link) {
+                
                 // console.log("this");
                 //delete the duplicate from the array
                 result.splice(fu, 1);
