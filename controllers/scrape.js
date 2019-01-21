@@ -49,8 +49,9 @@ app.get("/scrape", function(req, res) {
 
         // dublicate
         db.Article.find({}, function(err, data) {
-          if (data === []) {
+          if (data === {}) {
             console.log("not found" , data)
+            console.log("these are" , result)
             insert(result);
           } else {
             console.log("found" , data)
