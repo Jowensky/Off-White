@@ -47,41 +47,40 @@ app.get("/scrape", function(req, res) {
           .children("strong")
           .text();
 
-
-          // dublicate
+        // dublicate
         db.Article.find({}, function(err, data) {
-          console.log(data , "loop")
-          for (var fd in data) {
-            for (var fu in result) {
-              //if link matches
-              if (data[fd].link === result[fu].link) {
-                
-                // console.log("this");
-                //delete the duplicate from the array
-                result.splice(fu, 1);
-                console.log(` SPLICE ${result}`)
-                insert(result)
-              } else {
-                console.log("NO MATCH" + result)
-                insert(result)
+          if (!data) {
+            insert(result);
+          } else {
+            for (var fd in data) {
+              for (var fu in result) {
+                //if link matches
+                if (data[fd].link === result[fu].link) {
+                  // console.log("this");
+                  //delete the duplicate from the array
+                  result.splice(fu, 1);
+                  console.log(` SPLICE ${result}`);
+                  insert(result);
+                } else {
+                  console.log("NO MATCH" + result);
+                  insert(result);
+                }
               }
             }
           }
         });
 
-function insert(result) {
-  console.log("INSERT" + result)
-  db.Article.create(result)
-  .then(function() { 
-    console.log("success")
-  })
-  .catch(function(err) {
-    console.log(err)
-    return res.json(err);
-  });
-}
-
-
+        function insert(result) {
+          console.log("INSERT" + result);
+          db.Article.create(result)
+            .then(function() {
+              console.log("success");
+            })
+            .catch(function(err) {
+              console.log(err);
+              return res.json(err);
+            });
+        }
       });
     });
   res.redirect("/");
