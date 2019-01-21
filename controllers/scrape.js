@@ -53,7 +53,7 @@ app.get("/scrape", function(req, res) {
             console.log("not found" , data)
             insert(result);
           } else {
-          
+            console.log("found")
             for (var fd in data) {
               for (var fu in result) {
                 //if link matches
