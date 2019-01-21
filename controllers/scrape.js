@@ -56,17 +56,19 @@ app.post("/scrape", function(req, res) {
                 console.log(this);
                 //delete the duplicate from the array
                 result.splice(link, 1);
-                console.log("deleted");
+                insert(result)
               }
             }
           }
         });
 
-        db.Article.create(result)
+        function insert(result) {
+          db.Article.create(result)
           .then(function() {})
           .catch(function(err) {
             return res.json(err);
           });
+        }
       });
     });
   res.redirect("/");

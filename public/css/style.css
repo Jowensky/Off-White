@@ -1,5 +1,6 @@
 .item {
     height: 100vh;
+    text-align: center;
 }
 
 .item img {
@@ -9,6 +10,10 @@
 
 .item img:hover {
     cursor: pointer;
+}
+
+.price {
+    font-size: 19px;
 }
 
 form .connect {  
@@ -33,4 +38,36 @@ form .connect a {
 
 form .connect a:hover {
     font-size: larger;
+}
+
+.remove {
+    cursor: pointer;
+}
+
+.inline {
+    display: inline;
+    font-size: 20px;
+}
+
+.delete:hover {
+    cursor: pointer;
+}
+#test {
+    transition: background-color font-size 2s;
+}
+#test:hover {
+    cursor: pointer;
+    background-color: rgb(14, 14, 14);
+    color: wheat;
+    font-size: 21px;
+    font-family: "ZCOOL KuaiLe";
+}
+
+#yourcomment {
+    transition: height 3s;
+}
+
+#yourcomment:focus {
+    height: 100px;
+    width: 130px;
 }

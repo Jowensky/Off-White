@@ -1,18 +1,20 @@
 <div class="item">
     <h2>{{article.name}}</h2>
     <img src="{{article.image}}">
-    <p class="category">{{article.category}}</p>
-    <p>{{article.price}}</p>
+    <strong><p class="price">{{article.price}}</p></strong>
     <a href="https://www.off---white.com/{{article.link}}"><p class="link">Link</p></a>
 
+    <section class="float">
     <input id="yourauthor" for="author" class="comment" type="text" placeholder="author">
     <input id="yourcomment" name="comment" class="comment" type="text" placeholder="comment">
     <button id="add" data-id="{{article._id}}"type="submit">Submit</button>
+    </section>
     <hr>
     <p>These are the comments</p>
     {{#if article.comments}}
     {{#each article.comments}}
-    <button class="remove" data-id="{{this._id}}" data-article="{{article._id}}">{{this.author}}: {{this.body}}</button>
+    <strong><p class="inline">{{this.author}}: {{this.body}}</p></strong> &nbsp; &nbsp;
+     <i  data-id="{{this._id}}" data-article="{{article._id}}" class="fas fa-heart-broken remove inline"></i><br>
     {{/each}}
     {{/if}}
 </div>

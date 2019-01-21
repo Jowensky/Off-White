@@ -1,10 +1,12 @@
+<form action="/scrape" method="POST">
+    <button id="test">Scrape new Items</button>
+</form>
 {{#each off}}
 <div class="item">
     <h2>{{name}}</h2>
-    <button class="delete" data-id="{{_id}}">Delete</button>
     <a href="/articles/{{_id}}"><img src="{{image}}"></a>
-    <p class="category">{{category}}</p>
-    <p>{{price}}</p>
+    <button class="delete" data-id="{{_id}}">Delete</button>
+    <strong><p class="price">{{price}}</p></strong>
     <a href="https://www.off---white.com/{{link}}"><p class="link">Link</p></a>
     <hr>
 </div>
