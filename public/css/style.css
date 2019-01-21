@@ -53,6 +53,7 @@ form .connect a:hover {
     cursor: pointer;
 }
 #test {
+    position: absolute;
     transition: background-color font-size 2s;
 }
 #test:hover {
