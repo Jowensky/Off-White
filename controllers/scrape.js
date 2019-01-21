@@ -50,9 +50,8 @@ app.get("/scrape", function(req, res) {
 
           // dublicate
         db.Article.find({}, function(err, data) {
-          console.log(data)
+          console.log(data , "loop")
           for (var fd in data) {
-            console.log(fd , 'loop')
             for (var fu in result) {
               //if link matches
               if (data[fd].link === result[fu].link) {
