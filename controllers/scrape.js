@@ -50,9 +50,10 @@ app.get("/scrape", function(req, res) {
         // dublicate
         db.Article.find({}, function(err, data) {
           if (!data) {
-            console("not found" , data)
+            console.log("not found" , data)
             insert(result);
           } else {
+          
             for (var fd in data) {
               for (var fu in result) {
                 //if link matches
