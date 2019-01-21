@@ -7,6 +7,7 @@ app.get("/", function(req, res) {
     .sort({ _id: 1 })
     .limit(12)
     .then(function(result) {
+      console.log(`---------------------------------RESULT`)
       res.render("index", { off: result });
     })
     .catch(function(err) {

@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/OffWhite";
 
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect(MONGODB_URI);
 
 // Require all models
 
