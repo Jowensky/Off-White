@@ -13,7 +13,7 @@
     <p>These are the comments</p>
     {{#if article.comments}}
     {{#each article.comments}}
-    <strong><p class="inline">{{this.author}}: {{this.body}}</p></strong> &nbsp; &nbsp;
+    <p class="inline">{{this.author}}: {{this.body}}</p> &nbsp; &nbsp;
      <i  data-id="{{this._id}}" data-article="{{article._id}}" class="fas fa-heart-broken remove inline"></i><br>
     {{/each}}
     {{/if}}
